@@ -157,7 +157,6 @@ sns.catplot(
     col="cluster",
     col_wrap=3,
     kind="bar",
-    col="black",
 )
 plt.savefig("fig_8_18.png", dpi=600)
 
