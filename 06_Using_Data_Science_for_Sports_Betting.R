@@ -4,7 +4,14 @@ library(tidyverse)
 library(broom)
 
 ## load data
-pbp_r <- load_pbp(2016:2022)
+chap_6_file <- "./data/pbp_r_chap_6.csv"
+if (!file.exists(chap_6_file)) {
+    pbp_r <- load_pbp(2016:2022)
+    write_csv(pbp_r, chap_6_file)
+} else {
+    pbp_r <- read_csv(chap_6_file)
+}
+
 pbp_r_pass <-
     pbp_r |>
     filter(!is.na(passer_id))
@@ -138,7 +145,8 @@ pbp_r_pass_td_y_geq10 <-
     ungroup() |>
     mutate(exp_pass_td = predict(pass_fit_r, type = "response"))
 
-summary(pass_fit_r) |> print()
+summary(pass_fit_r) |>
+    print()
 
 tidy(pass_fit_r, exponentiate = TRUE, conf.int = TRUE)
 

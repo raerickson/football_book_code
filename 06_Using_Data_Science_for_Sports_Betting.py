@@ -7,10 +7,17 @@ import statsmodels.api as sm
 import matplotlib.pyplot as plt
 import seaborn as sns
 from scipy.stats import poisson
+import os
 
 ## load data
-seasons = range(2016, 2022 + 1)
-pbp_py = nfl.import_pbp_data(seasons)
+chap_6_file = "./data/pbp_py_chap_6.csv"
+if os.path.isfile(chap_6_file):
+    pbp_py = pd.read_csv(chap_6_file, low_memory=False)
+else:
+    seasons = range(2016, 2022 + 1)
+    pbp_py = nfl.import_pbp_data(seasons)
+    pbp_py.to_csv(chap_6_file)
+
 pbp_py_pass = pbp_py.query("passer_id.notnull()").reset_index()
 
 ## format data
@@ -160,8 +167,6 @@ cols_look = [
 pbp_py_pass_td_y_geq10.query(filter_by)[cols_look]
 
 ## Regression coefficients
-from scipy.stats import poisson
-
 x = poisson.rvs(mu=1, size=10)
 print(x)
 
