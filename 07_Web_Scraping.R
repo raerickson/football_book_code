@@ -9,27 +9,33 @@ library(zoo)
 library(kableExtra)
 
 ## web scrape
-draft_r <- tibble()
-
-for (i in seq(from = 2000, to = 2022)) {
-    url <- paste0(
-        "https://www.pro-football-reference.com/years/",
-        i,
-        "/draft.htm"
-    )
-    web_data <-
-        read_html(url) |>
-        html_nodes(xpath = '//*[@id="drafts"]') |>
-        html_table()
-    web_df <-
-        web_data[[1]]
-    web_df_clean <-
-        web_df |>
-        janitor::row_to_names(row_number = 1) |>
-        janitor::clean_names(case = "none") |>
-        mutate(Season = i) |> # add seasons
-        filter(Tm != "Tm") # Remove any extra column headers
-    draft_r <- bind_rows(draft_r, web_df_clean)
+chap_7_file <- "./data/chap_7_all_r_file.csv"
+if (!file.exists(chap_7_file)) {
+    draft_r <- tibble()
+    for (i in seq(from = 2000, to = 2022)) {
+        url <- paste0(
+            "https://www.pro-football-reference.com/years/",
+            i,
+            "/draft.htm"
+        )
+        web_data <-
+            read_html(url) |>
+            html_nodes(xpath = '//*[@id="drafts"]') |>
+            html_table()
+        web_df <-
+            web_data[[1]]
+        web_df_clean <-
+            web_df |>
+            janitor::row_to_names(row_number = 1) |>
+            janitor::clean_names(case = "none") |>
+            mutate(Season = i) |> # add seasons
+            filter(Tm != "Tm") # Remove any extra column headers
+        draft_r <- bind_rows(draft_r, web_df_clean)
+    }
+    write_csv(draft_r, chap_7_file)
+    draft_r <- read_csv(chap_7_file)
+} else {
+    draft_r <- read_csv(chap_7_file)
 }
 
 ## rename teams
@@ -99,7 +105,8 @@ draft_chart_r <-
     mutate(
         fitted_DrAV = pmax(0, exp(predict(DrAV_pick_fit_r)) - 1)
     )
-draft_chart_r |> head()
+draft_chart_r |>
+    head()
 
 ## Jets/Colts 2018 trade evaluated
 future_pick <-

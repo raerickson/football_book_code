@@ -6,24 +6,28 @@ library(multiUS)
 library(ggthemes)
 library(RColorBrewer)
 
-combine_r <- tibble()
-for (i in seq(from = 2000, to = 2023)) {
-    url <- paste0(
-        "https://www.pro-football-reference.com/draft/",
-        i, "-combine.htm"
-    )
-    web_data <-
-        read_html(url) |>
-        html_table()
-    web_data_clean <-
-        web_data[[1]] |>
-        mutate(Season = i) |>
-        filter(Ht != "Ht")
-    combine_r <- bind_rows(combine_r, web_data_clean)
-}
 
-write_csv(combine_r, "combine_data_r.csv")
-combine_r <- read_csv("combine_data_r.csv")
+chap_8_combine_r_file <- "./data/chap_8_combine_r_file.csv"
+if (!file.exists(chap_8_combine_r_file)) {
+    combine_r <- tibble()
+    for (i in seq(from = 2000, to = 2023)) {
+        url <- paste0(
+            "https://www.pro-football-reference.com/draft/",
+            i, "-combine.htm"
+        )
+        web_data <-
+            read_html(url) |>
+            html_table()
+        web_data_clean <-
+            web_data[[1]] |>
+            mutate(Season = i) |>
+            filter(Ht != "Ht")
+        combine_r <- bind_rows(combine_r, web_data_clean)
+    }
+    write_csv(combine_r, chap_8_combine_r_file)
+} else {
+    combine_r <- read_csv(chap_8_combine_r_file)
+}
 
 combine_r <-
     combine_r |>

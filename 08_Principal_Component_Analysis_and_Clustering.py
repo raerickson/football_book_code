@@ -10,15 +10,18 @@ from sklearn.decomposition import PCA
 from scipy.cluster.vq import vq, kmeans
 
 ## download, format, and save data
-combine_py = pd.DataFrame()
-for i in range(2000, 2023 + 1):
-    url = "https://www.pro-football-reference.com/draft/" + str(i) + "-combine.htm"
-    web_data = pd.read_html(url)[0]
-    web_data["Season"] = i
-    web_data = web_data.query('Ht != "Ht"')
-    combine_py = pd.concat([combine_py, web_data])
-combine_py.reset_index(drop=True, inplace=True)
-
+chap_8_combine_py_file = "./data/chap_8_combine_py_file.csv"
+if os.path.isfile(chap_8_combine_py_file):
+    combine_py = pd.read_csv(chap_8_combine_py_file)
+else:
+    combine_py = pd.DataFrame()
+    for i in range(2000, 2023 + 1):
+        url = "https://www.pro-football-reference.com/draft/" + str(i) + "-combine.htm"
+        web_data = pd.read_html(url)[0]
+        web_data["Season"] = i
+        web_data = web_data.query('Ht != "Ht"')
+        combine_py = pd.concat([combine_py, web_data])
+    combine_py.reset_index(drop=True, inplace=True)
 
 combine_py[["Ht-ft", "Ht-in"]] = combine_py["Ht"].str.split("-", expand=True)
 
@@ -39,7 +42,6 @@ combine_py["Ht"] = combine_py["Ht-ft"] * 12.0 + combine_py["Ht-in"]
 combine_py.drop(["Ht-ft", "Ht-in"], axis=1, inplace=True)
 
 combine_py.to_csv("combine_data_py.csv", index=False)
-
 combine_py.describe()
 
 ## several plots to look at combine data

@@ -27,19 +27,10 @@ We strongly encourage you to use updated data from future (post-2022) season.
 
 ## To do:
 
-- [X] check code in chapter 2 for hidden verses viz code
-- [X] Add in all file names to files
-- [x] run chapter 3 and save needed figures
-- [x] relint chapter 3
-- [x] relint chapter and 4
-- [X] run chapter 4 and save needed figures
-- [X] run chapter 5 and save needed figures
-- [ ] re-run all chapters a final time to check
 - [ ] Check code for Chapter 7 against book, especially R code.
-- [ ] re-run chapter 4 to re-save python figure that was overwritten
 
 
-## Directory Contents
+## Repo Contents
 
 This repository contains the following files:
 
