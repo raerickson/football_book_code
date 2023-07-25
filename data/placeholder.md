@@ -1,0 +1,1 @@
+This file exists to keep the empty data file in the Git repo.
