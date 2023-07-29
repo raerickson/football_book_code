@@ -16,7 +16,7 @@ The few lines of code from Appendix A are not included because this linear are t
 To download the required libraries for the Python examples, execute the following command:
 
 ```
-$ pip install --r requirements.txt
+$ pip install -r requirements.txt
 ```
 
 ## Coding Note
