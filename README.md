@@ -12,6 +12,13 @@ The few lines of code from Appendix A are not included because this linear are t
 
 **Tip:** Recreate the chapters using updated data. Our examples were written before the 2022 season, so anytime after the start of the season will have updated data for you to explore.
 
+## Python files
+To download the required libraries for the Python examples, execute the following command:
+
+```
+$ pip install -r requirements.txt
+```
+
 ## Coding Note
 
 We coded our examples with a focus on being easy to explain and use.
@@ -36,6 +43,7 @@ This repository contains the following files:
 
 - `./data/` is a folder to hold a cache copy of data pulled by the code.
 - `README.md`: This file
+- 'requirements.txt': Requirements file containing requirement python libraries for installation with pip.
 - `00_preface.R`: R code of the preface [R only]
 - `01_Football_analytics.py`: Python code for Chapter 1
 - `01_Football_analytics.R`: R code for Chapter 1

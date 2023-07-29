@@ -1,0 +1,9 @@
+nfl_data_py
+pandas
+numpy
+seaborn
+matplotlib
+statsmodels
+scipy
+scikit-learn
+lxml
