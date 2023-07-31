@@ -1,10 +1,10 @@
 # Football Analytics with Python and R code
 
 This repository contains code for the book _Football Analytics with Python and R_ by Eric Eager and Richard Erickson.
-The repository contains two files for each chapter, a Python file that ends in `*.py` and an R file that ends in `*..
-The Preface only includes R code because we use R to create the figures in this chapter and the code is not included in the book.
+The repository contains two files for each chapter, a Python file that ends in `*.py` and an R file that ends in `*.R`.
+The Preface only includes R code because we used R to create the figures in this chapter and the code is not included in the book.
 Likewise, Chapter 9 only includes R code because the example code was not used in the book.
-The few lines of code from Appendix A are not included because this linear are trivial to write from the book.
+The few lines of code from Appendix A are not included because these code are linear and trivial to write from the book.
 
 **Note:** Line breaks differ in these files compared to the book because code was not limited by page width.
 
@@ -27,15 +27,10 @@ Thus, as you learn more about programming in either R or Python, you will likely
 
 ## Data Note
 
-We include a folder containing data used for the book.
+The code will cache (that is, save code locally for use later) to avoid multiple downloads.
+We include a folder to storte this data in the data.
 However, we were unable to include the data files due to GitHubs limits for free repository data files.
-However, we also include our "cache" code in each chapter so that you avoid loading data to speed up code.
-We strongly encourage you to use updated data from future (post-2022) season.
-
-## To do:
-
-- [ ] Check code for Chapter 7 against book, especially R code.
-
+That being said, we strongly encourage you to use updated data from future (post-2022) season.
 
 ## Repo Contents
 
