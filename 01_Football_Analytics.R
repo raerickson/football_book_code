@@ -26,9 +26,9 @@ pbp_r_p <-
     filter(play_type == "pass" & !is.na(air_yards))
 
 ## calculate and print adot
-pbp_r |>
+pbp_r_p |>
     group_by(passer_id, passer) |>
-    summarize(n = n(), adot = mean(air_yards, na.rm = TRUE)) |>
+    summarize(n = n(), adot = mean(air_yards)) |>
     filter(n >= 100 & !is.na(passer)) |>
     arrange(-adot) |>
     print(n = Inf)
