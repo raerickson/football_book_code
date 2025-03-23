@@ -70,19 +70,19 @@ With the virtual environment activated, you can now freeze the installed package
 pip freeze > freeze_file_name
 ```
 
-For example, to create `requirements.txt`:
+For example, to create a freeze file `requirements.txt`:
 ```sh
 pip freeze > requirements.txt
 ```
 
 ## Installing Packages from a Freeze File
 
-With the virtual environment activated, you can now install packages using `pip`:
+With the virtual environment activated, you can now install packages from a freeze file using `pip`:
 ```sh
 pip install -r freeze_file_name
 ```
 
-For example, to create `requirements.txt`:
+For example, to install all required packages listed in `requirements.txt`:
 ```sh
 pip freeze > requirements.txt
 ```
