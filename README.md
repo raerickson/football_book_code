@@ -19,6 +19,8 @@ To download the required libraries for the Python examples, execute the followin
 $ pip install -r requirements.txt
 ```
 
+A brief introdution to Python environments is supplied in the `PYTHON.md` file.
+
 ## Coding Note
 
 We coded our examples with a focus on being easy to explain and use.
@@ -61,7 +63,8 @@ This repository contains the following files:
 - `11_Appendix_B.R`: R code from Appendix B
 - `12_Appendix_C.py`: Python code for Appendix C
 - `12_Appendix_C.R`: R code for Appendix C
-
+- `PYTHON.md` a reader submitted and brief tutorial on Python environments
+ 
 ## Disclaimer
 
 The code provided in this repository is provided "as is" without any warranty or guarantees.
