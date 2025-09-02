@@ -84,7 +84,7 @@ pip install -r freeze_file_name
 
 For example, to install all required packages listed in `requirements.txt`:
 ```sh
-pip freeze > requirements.txt
+pip install -r requirements.txt
 ```
 
 ## Summary
